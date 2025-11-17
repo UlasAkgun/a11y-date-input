@@ -1,0 +1,53 @@
+<div class="app">
+    <h1>{{ title }}</h1>
+
+    <div class="card">
+        <h2>V1: Basic Date Picker</h2>
+        <p>Select a date</p>
+        <lib-date-input
+            [value]="selectedDate"
+            [locale]="'en-US'"
+            [minYear]="1900"
+            [maxYear]="2100"
+            (dateChange)="onDateChange($event)"
+        ></lib-date-input>
+        <p *ngIf="selectedDate"><strong>Selected:</strong> {{ selectedDate | date: 'fullDate' }}</p>
+    </div>
+
+    <div class="card">
+        <h2>V2: Date Picker with Time</h2>
+        <p>Select a date and time</p>
+        <lib-date-input
+            [value]="selectedDateWithTime"
+            [locale]="'en-US'"
+            [showTime]="true"
+            [minYear]="1900"
+            [maxYear]="2100"
+            (dateChange)="onDateWithTimeChange($event)"
+        ></lib-date-input>
+        <p *ngIf="selectedDateWithTime"><strong>Selected:</strong> {{ selectedDateWithTime | date: 'medium' }}</p>
+    </div>
+
+    <div class="card">
+        <h2>V3: Date Range Picker</h2>
+        <p>Select a date range</p>
+        <lib-date-range-input
+            [startDate]="rangeStart"
+            [endDate]="rangeEnd"
+            [locale]="'en-US'"
+            [minYear]="1900"
+            [maxYear]="2100"
+            (rangeChange)="onRangeChange($event)"
+        ></lib-date-range-input>
+        <div *ngIf="rangeStart || rangeEnd">
+            <p><strong>Start:</strong> {{ rangeStart | date: 'longDate' }}</p>
+            <p><strong>End:</strong> {{ rangeEnd | date: 'longDate' }}</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Internationalization Example</h2>
+        <p>French locale (fr-FR)</p>
+        <lib-date-input [locale]="'fr-FR'" [minYear]="1900" [maxYear]="2100"></lib-date-input>
+    </div>
+</div>
