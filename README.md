@@ -1,4 +1,4 @@
-# Natural Date Picker
+# A11y Date Input
 
 A monorepo for cross-framework date picker components built with Lit web components and framework-specific wrappers.
 
@@ -132,19 +132,7 @@ function App() {
 
 ## Publishing
 
-```bash
-# Update versions in package.json files
-# Remove "private": true from packages
-# Update package names to your scope
-
-pnpm build
-cd packages/react-a11y-date-input && npm publish
-cd packages/angular-a11y-date-input && npm publish
-cd packages/solid-a11y-date-input && npm publish
-cd packages/svelte-a11y-date-input && npm publish
-```
-
-Or use [Changesets](https://github.com/changesets/changesets):
+This repository is configured to use [Changesets](https://github.com/changesets/changesets):
 
 ```bash
 pnpm add -D @changesets/cli
