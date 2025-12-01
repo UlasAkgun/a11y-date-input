@@ -1,0 +1,33 @@
+{
+  "name": "@repo/svelte-a11y-date-input",
+  "version": "0.0.1",
+  "type": "module",
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "svelte-package -o dist",
+    "dev": "concurrently \"svelte-package -o dist --watch\" \"chokidar '../a11y-date-input/dist/**' -c 'svelte-package -o dist'\"",
+    "clean": "rm -rf dist",
+    "lint": "eslint src",
+    "type-check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@repo/a11y-date-input": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@sveltejs/package": "^2.3.7",
+    "@sveltejs/vite-plugin-svelte": "^5.0.4",
+    "svelte": "^5.22.0",
+    "svelte-check": "^4.2.0"
+  }
+}

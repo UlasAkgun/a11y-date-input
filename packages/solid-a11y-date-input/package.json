@@ -1,0 +1,31 @@
+{
+  "name": "@repo/solid-a11y-date-input",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.jsx",
+  "module": "./dist/index.jsx",
+  "exports": {
+    ".": {
+      "solid": "./dist/index.jsx",
+      "default": "./dist/index.jsx"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "concurrently \"tsup --watch\" \"chokidar '../a11y-date-input/dist/**' -c 'tsup'\"",
+    "clean": "rm -rf dist",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/a11y-date-input": "workspace:*"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "babel-preset-solid": "^1.9.3",
+    "solid-js": "^1.9.3"
+  }
+}

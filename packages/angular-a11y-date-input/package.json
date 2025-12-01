@@ -1,0 +1,28 @@
+{
+  "name": "@repo/angular-a11y-date-input",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/fesm2022/repo-angular-a11y-date-input.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "dev": "concurrently \"ng-packagr -p ng-package.json --watch\" \"chokidar '../a11y-date-input/dist/**' -c 'ng-packagr -p ng-package.json'\"",
+    "clean": "rm -rf dist",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/a11y-date-input": "workspace:*",
+    "tslib": "^2.8.1"
+  },
+  "peerDependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^20.3.11",
+    "@angular/core": "^20.3.11",
+    "@repo/eslint-config": "workspace:*",
+    "ng-packagr": "^20.1.2"
+  }
+}
