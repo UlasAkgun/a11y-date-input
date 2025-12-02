@@ -8,29 +8,27 @@ export interface IDateInputProps extends IDateInputCtrlProps {
     className?: string;
 }
 
-export const DateInput = forwardRef<DateInputElement, IDateInputProps>(
-    (props, externalRef) => {
-        const ctrl = DateInputCtrl({
-            onChange: props.onChange,
-            value: props.value,
-        });
+export const DateInput = forwardRef<DateInputElement, IDateInputProps>((props, externalRef) => {
+    const ctrl = DateInputCtrl({
+        onChange: props.onChange,
+        value: props.value,
+    });
 
-        return (
-            <date-input
-                placeholder={props.placeholder}
-                value={ctrl.value}
-                ref={(e: DateInputElement | null) => {
-                    ctrl.internalRef.current = e;
+    return (
+        <date-input
+            placeholder={props.placeholder}
+            value={ctrl.value}
+            ref={(e) => {
+                ctrl.internalRef.current = e;
 
-                    if (typeof externalRef === 'function') {
-                        externalRef(e);
-                    } else if (externalRef) {
-                        externalRef.current = e;
-                    }
-                }}
-            ></date-input>
-        );
-    }
-);
+                if (typeof externalRef === 'function') {
+                    externalRef(e);
+                } else if (externalRef) {
+                    externalRef.current = e;
+                }
+            }}
+        ></date-input>
+    );
+});
 
 DateInput.displayName = 'DateInput';
